@@ -1,0 +1,28 @@
+query {
+  allFile(filter: { sourceInstanceName: { eq: "images" } }) {
+    nodes {
+      relativePath
+      childImageSharp {
+				fluid {
+					src
+          srcSet
+				}
+      }
+    }
+  }
+}
+
+query {
+  allFile(filter: { sourceInstanceName: { eq: "images" } }) {
+    nodes {
+      relativePath
+      childImageSharp {
+        original {
+          src
+          width
+          height
+        }
+      }
+    }
+  }
+}
