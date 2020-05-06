@@ -1,4 +1,53 @@
 query {
+  allInstaNode(limit:12) {
+    nodes {
+      id
+      caption
+      username
+      localFile {
+        childImageSharp {
+          fluid(maxWidth: 120 maxHeight: 120) {
+            # ...GatsbyImageSharpFluid_withWebp
+            srcSet
+          }
+        }
+      }
+    }
+  }
+}
+
+query {
+  allInstaNode {
+    nodes {
+      localFile {
+        childImageSharp {
+          fluid {
+            srcSet
+          }
+        }
+      }
+    }
+  }
+}
+
+
+query {
+  allMdx {
+    nodes {
+      frontmatter {
+        image {
+          childImageSharp {
+            fluid {
+              srcSet
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+query {
   allFile(filter: { sourceInstanceName: { eq: "images" } }) {
     nodes {
       relativePath
